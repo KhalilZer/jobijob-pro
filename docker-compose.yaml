@@ -1,4 +1,7 @@
 services:
+  # =========================
+  # KEYCLOAK
+  # =========================
   keycloak:
     image: quay.io/keycloak/keycloak:26.7.3
     container_name: jobipro-keycloak
@@ -11,3 +14,25 @@ services:
 
     ports:
       - "8180:8080"
+
+  # =========================
+  # USER SERVICE DATABASE
+  # =========================
+  user-db:
+    image: postgres:18.4-alpine3.24
+    container_name: jobipro-user-db
+
+    environment:
+      POSTGRES_DB: user_service_db
+      POSTGRES_USER: jobipro
+      POSTGRES_PASSWORD: jobipro
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - user_db_data:/var/lib/postgresql
+
+
+volumes:
+  user_db_data:
