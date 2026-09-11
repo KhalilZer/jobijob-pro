@@ -15,7 +15,25 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/jobijob-pro
+
 eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+storage:
+  endpoint: http://localhost:9000
+  access-key: jobipro
+  secret-key: jobipro123
+  bucket: jobipro
+  region: us-east-1

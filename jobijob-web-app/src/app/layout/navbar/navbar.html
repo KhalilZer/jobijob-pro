@@ -1,0 +1,14 @@
+<div>
+  <div class="flex justify-between">
+    <div>LOGO</div>
+    <div>
+      @if (keycloakService.isAuthenticated$ | async; as authenticated) {
+        Hello ::: NAME
+        <button (click)="logout()">Logout</button>
+      } @else {
+        <button (click)="login()">Login</button>
+        <button (click)="register()">Register</button>
+      }
+    </div>
+  </div>
+</div>

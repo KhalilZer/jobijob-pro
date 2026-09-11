@@ -1,14 +1,13 @@
 package com.jobipro.userservice.mappers;
 
 
-import com.jobipro.userservice.dtos.user.RegisterRequest;
-import com.jobipro.userservice.dtos.user.RegisterResponse;
-import com.jobipro.userservice.enteties.User;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+
+import com.jobipro.userservice.dtos.user.MeResponse;
+import com.jobipro.userservice.enteties.User;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    
+    MeResponse toResponse(User user);
 }

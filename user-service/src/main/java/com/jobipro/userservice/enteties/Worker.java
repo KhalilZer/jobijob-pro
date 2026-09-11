@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -31,7 +33,7 @@ public class Worker {
     private Double latitude;
     private Double longitude;
     //Location ENd
-    private Boolean available;
+    private Boolean available = true;
 
     @Column(name = "created_at")
     private Instant createdAt;

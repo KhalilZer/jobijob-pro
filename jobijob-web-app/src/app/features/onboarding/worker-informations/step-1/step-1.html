@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <p-multiselect
+      [options]="items()"
+      optionLabel="name"
+      optionValue="id"
+      placeholder="Select sectors"
+      display="chip"
+      [(ngModel)]="selectedSectors"
+    >
+      <ng-template #item let-sector>
+        <div class="sector-option">
+          <img [src]="sector.icon" alt="hello" />
+
+          <span>{{ sector.name }}</span>
+        </div>
+      </ng-template></p-multiselect
+    >
+  </div>
+  <div>
+    <geoapify-geocoder-autocomplete
+      placeholder="Search your location"
+      [lang]="'en'"
+      [limit]="5"
+      [addDetails]="true"
+      (placeSelect)="placeSelect($event)"
+    >
+    </geoapify-geocoder-autocomplete>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <!-- -------------------- -->
+  <!-- STepper -->
+  <!-- -------------------- -->
+
+  <!-- STEP1 -->
+
+  @if (currentStep() === 1) {
+    <app-step-1
+      (sectors)="onSelectSecotrs($event)"
+      (locationSelected)="onLocationSelected($event)"
+    />
+  }
+  @if (currentStep() === 2) {
+    <app-step-2 />
+  }
+
+  <button (click)="next()">Next</button>
+</div>
