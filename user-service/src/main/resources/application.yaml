@@ -1,6 +1,12 @@
 server:
   port: 8081
 
+keycloak:
+  admin:
+    server-url: http://localhost:8180
+    realm: jobijob-pro
+    client-id: user-service-admin
+    client-secret: ${KEYCLOAK_ADMIN_CLIENT_SECRET}
 spring:
   application:
     name: USER-SERVICE

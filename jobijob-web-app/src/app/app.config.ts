@@ -47,8 +47,7 @@ export const appConfig: ApplicationConfig = {
       if (keycloakService.isAuthenticatedFunction()) {
         authService.me().subscribe({
           next(res) {
-            console.log('hello');
-            console.log(res);
+            router.navigate(['/worker']);
           },
           error(error) {
             if (error instanceof HttpErrorResponse) {

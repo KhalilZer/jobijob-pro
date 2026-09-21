@@ -24,6 +24,7 @@ public class Worker {
     private String description;
 
     // Location
+    private String address;
     private String city;
     private String postalCode;
 
@@ -45,6 +46,15 @@ public class Worker {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
+
+    @OneToMany(mappedBy = "worker")
+    private List<WorkerSector> workerSectors = new ArrayList<>();
+
+    public List<Sector> getSectors() {
+        return workerSectors.stream()
+                .map(WorkerSector::getSector)
+                .toList();
+    }
 
     @PrePersist
     protected void onCreate() {

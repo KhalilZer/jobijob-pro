@@ -1,12 +1,13 @@
 package com.jobipro.userservice.controllers;
 
 
-import com.jobipro.userservice.dtos.user.CreateUserRequest;
-import com.jobipro.userservice.dtos.user.MeResponse;
+import com.jobipro.common.dto.internal.InternalUserRequestDto;
+import com.jobipro.common.dto.internal.InternalUserResponseDto;
+import com.jobipro.common.response.GlobalResponse;
+import com.jobipro.userservice.dtos.user.*;
 import com.jobipro.userservice.dtos.user.storage.ProfilePhotoUploadRequest;
 import com.jobipro.userservice.dtos.user.storage.UploadUrlResponse;
 import com.jobipro.userservice.services.UserService;
-import com.jobipro.userservice.shared.GlobalResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -59,10 +60,45 @@ public class UserController {
 
         return GlobalResponse.success(
                 meResponse,
-                "User Created Succefully",
+                "User Created Successfully",
                 HttpStatus.CREATED
 
         );
 
     }
+
+    @PatchMapping("/{publicId}")
+    public ResponseEntity<GlobalResponse<MeResponse>> updateUser(@Valid @RequestBody UpdateUserRequest updateUserRequest,
+                                                                 @PathVariable String publicId) {
+        return GlobalResponse.success(
+                userService.updateUser(publicId, updateUserRequest),
+                "User Updated Successfully",
+                HttpStatus.CREATED
+        );
+    }
+
+    //Internal Client Endpoints
+
+    @GetMapping("/internal/me")
+    public ResponseEntity<GlobalResponse<InternalUserResponseDto>> getMeInternal(@AuthenticationPrincipal Jwt jwt) {
+
+        return GlobalResponse.success(
+                userService.meInternal(jwt.getSubject()),
+                "User Updated Successfully",
+                HttpStatus.CREATED
+        );
+    }
+
+    @PostMapping("/internal/users")
+    public ResponseEntity<GlobalResponse<InternalUserResponseDto>> createInternalUser(
+            @RequestBody InternalUserRequestDto createInternalUser
+    ) {
+        return GlobalResponse.success(
+                userService.createInternalUser(createInternalUser),
+                "User Created Successfully",
+                HttpStatus.CREATED
+        );
+    }
+
+
 }

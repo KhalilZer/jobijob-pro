@@ -8,31 +8,27 @@ import java.time.LocalDate;
 import java.util.List;
 
 public record UpdateUserRequest(
-        @NotEmpty
         List<Long> sectors,
 
-        @NotBlank
+        String address,
         String city,
 
-        @NotBlank
         String postalCode,
 
-        @NotBlank
         String countryCode,
 
-        @NotNull
         Double latitude,
 
-        @NotNull
         Double longitude,
 
-        @NotBlank
         String fullName,
 
-        @NotNull
         LocalDate birthDate,
 
-        @NotBlank
-        String phone
+        String phone,
+
+        String description,
+        String photo
+
 ) {
 }

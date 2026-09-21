@@ -1,9 +1,9 @@
 package com.jobipro.userservice.controllers;
 
+import com.jobipro.common.response.GlobalResponse;
 import com.jobipro.userservice.dtos.sector.SectorCreateRequest;
 import com.jobipro.userservice.enteties.Sector;
 import com.jobipro.userservice.services.SectorService;
-import com.jobipro.userservice.shared.GlobalResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

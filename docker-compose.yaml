@@ -34,6 +34,23 @@ services:
       - user_db_data:/var/lib/postgresql
 
   # =========================
+  # COMPANY SERVICE DATABASE
+  # =========================
+  company-db:
+    image: postgres:18.4-alpine3.24
+    container_name: jobipro-company-db
+
+    environment:
+      POSTGRES_DB: company_service_db
+      POSTGRES_USER: jobipro
+      POSTGRES_PASSWORD: jobipro
+
+    ports:
+      - "5434:5432"
+
+    volumes:
+      - company_db_data:/var/lib/postgresql
+  # =========================
   # MINIO / S3 Storage
   # =========================
   minio:
@@ -52,3 +69,5 @@ services:
 volumes:
   user_db_data:
   minio_data:
+  company_db_data:
+

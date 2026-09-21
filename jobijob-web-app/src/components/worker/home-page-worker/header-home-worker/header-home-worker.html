@@ -1,0 +1,9 @@
+<div>
+  Informations .....
+
+  <form [formGroup]="searchForm()" (submit)="onSubmit()">
+    <input type="text" formControlName="search" />
+    <input type="text" formControlName="city" />
+    <button type="submit">Search</button>
+  </form>
+</div>

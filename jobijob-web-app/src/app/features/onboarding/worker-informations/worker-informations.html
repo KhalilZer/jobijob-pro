@@ -12,8 +12,11 @@
     />
   }
   @if (currentStep() === 2) {
-    <app-step-2 />
+    <app-step-2 [form]="step2Form" />
   }
 
+  @if (currentStep() === 3) {
+    <app-step-3 (onSelectImage)="onImageSelected($event)" />
+  }
   <button (click)="next()">Next</button>
 </div>

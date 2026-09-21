@@ -10,3 +10,9 @@ export interface Sector {
 export interface sectorPlusIcon extends Sector {
   icon: string;
 }
+
+export interface SectorResponse {
+  id: number;
+  code: string;
+  name: string;
+}

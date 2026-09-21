@@ -1,0 +1,12 @@
+<div>
+  <p-fileupload
+    mode="basic"
+    chooseLabel="Choose profile photo"
+    chooseIcon="pi pi-image"
+    accept="image/*"
+    [multiple]="false"
+    [maxFileSize]="5000000"
+    [customUpload]="true"
+    (onSelect)="onPhotoSelected($event)"
+  />
+</div>

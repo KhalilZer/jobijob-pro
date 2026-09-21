@@ -13,6 +13,9 @@ public record CreateUserRequest(
         List<Long> sectorsId,
 
         @NotBlank
+        String address,
+
+        @NotBlank
         String city,
 
         @NotBlank

@@ -1,14 +1,29 @@
 <div>
   <div class="flex justify-between">
     <div>LOGO</div>
+
     <div>
-      @if (keycloakService.isAuthenticated$ | async; as authenticated) {
-        Hello ::: NAME
-        <button (click)="logout()">Logout</button>
-      } @else {
-        <button (click)="login()">Login</button>
-        <button (click)="register()">Register</button>
-      }
+      <ul class="flex gap-2">
+        <li>find a worker</li>
+        <li>how it works</li>
+        <li>for business</li>
+        <li>about</li>
+      </ul>
+    </div>
+    <div class="flex gap-2">
+      <div>Lang</div>
+      <div>notif</div>
+
+      <div>
+        @if (!isAuthenticated) {
+          <button (click)="login()">Login</button> / <button (click)="register()">register</button>
+        } @else {
+          @if (connectedUser()?.userProfile; as user) {
+            <img [src]="user.photoUrl" alt="" class="h-10 w-10" />
+            {{ user.fullName }}
+          }
+        }
+      </div>
     </div>
   </div>
 </div>

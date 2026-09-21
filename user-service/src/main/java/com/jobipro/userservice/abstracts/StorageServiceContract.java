@@ -6,5 +6,6 @@ import com.jobipro.userservice.dtos.user.storage.UploadUrlResponse;
 public interface StorageServiceContract {
     String generateUploadUrl(String objectKey, String contentType);
 
-   
+    String generateDownloadUrl(String objectKey);
+
 }

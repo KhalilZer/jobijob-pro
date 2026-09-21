@@ -1,0 +1,34 @@
+<div [formGroup]="filterForm()">
+  <div>
+    <label>Categories</label>
+
+    <select formControlName="category">
+      <option [ngValue]="null">All categories</option>
+      @if (allSectors(); as sectors) {
+        @for (sector of sectors.data; track sector.id) {
+          <option [value]="sector.id">{{ sector.name }}</option>
+        }
+      }
+    </select>
+  </div>
+
+  <div>
+    <label>Date</label>
+
+    <select formControlName="date">
+      @for (filter of filterByDate; track filter.value) {
+        <option [value]="filter.value">
+          {{ filter.display }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div>
+    <span>Budget</span>
+
+    <input type="number" formControlName="fromPrice" min="0" />
+
+    <input type="number" formControlName="toPrice" min="0" />
+  </div>
+</div>

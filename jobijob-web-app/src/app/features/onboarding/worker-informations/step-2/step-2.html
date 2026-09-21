@@ -1,5 +1,32 @@
-<div>
-  <div class="flex">
-    <input pInputText id="username" placeholder="Fu" />
+<form [formGroup]="form()">
+  <div class="">
+    <button>Skip</button>
+    <br />
+    <div>
+      <input pInputText id="username" placeholder="fullName" formControlName="fullName" />
+      @if (form().controls.fullName.invalid && form().controls.fullName.touched) {
+        <span>Invalid full Name (Min 10 max 100)</span>
+      }
+    </div>
+    <div class="flex justify-center">
+      <label for="buttondisplay" class="text-sm font-bold block mb-2"> Button </label>
+      <p-datepicker
+        dateFormat="dd/mm/yy"
+        placeholder="dd/mm/yyyy"
+        pInputMask="99/99/9999"
+        formControlName="birthDate"
+      />
+      @if (form().controls.birthDate.invalid) {
+        <span>Invalid Birthday</span>
+      }
+    </div>
+    <intl-tel-input formControlName="phone" initialCountry="pt" [loadUtils]="loadUtils" />
+    @if (form().controls.phone.invalid && form().controls.phone.touched) {
+      <span>Invalid Phone number</span>
+    }
+    <input pInputText id="username" placeholder="description" formControlName="description" />
+    @if (form().controls.description.invalid && form().controls.description.touched) {
+      <span>Invalid description</span>
+    }
   </div>
-</div>
+</form>

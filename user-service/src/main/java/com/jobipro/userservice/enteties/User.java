@@ -1,6 +1,7 @@
 package com.jobipro.userservice.enteties;
 
 
+import com.jobipro.common.UserRole;
 import com.jobipro.userservice.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -30,7 +31,7 @@ public class User {
     private String fullName;
 
     @Column(name = "birth_date")
-    private LocalDate birthDay;
+    private LocalDate birthDate;
 
     private String email;
     private String phone;
@@ -45,6 +46,7 @@ public class User {
     @Column(name = "updated_at")
     private Instant updatedAt;
 
+    private UserRole role;
 
     @PrePersist
     protected void onCreate() {

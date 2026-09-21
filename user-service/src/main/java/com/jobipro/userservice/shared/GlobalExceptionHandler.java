@@ -1,7 +1,8 @@
 package com.jobipro.userservice.shared;
 
-import com.jobipro.userservice.exceptions.ResourceAlreadyExist;
-import com.jobipro.userservice.exceptions.ResourceNotFound;
+import com.jobipro.common.exceptions.ResourceNotFound;
+import com.jobipro.common.response.GlobalResponse;
+import com.jobipro.common.exceptions.ResourceAlreadyExist;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
