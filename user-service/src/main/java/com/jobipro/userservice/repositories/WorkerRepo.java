@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface WorkerRepo extends JpaRepository<Worker, Long> {
 
     Optional<Worker> findByUser(User user);
+
+    Optional<Worker> findByPublicId(String workerPublicId);
 }

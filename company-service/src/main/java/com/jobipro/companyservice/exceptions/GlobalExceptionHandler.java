@@ -1,6 +1,7 @@
 package com.jobipro.companyservice.exceptions;
 
 import com.jobipro.common.exceptions.ResourceAlreadyExist;
+import com.jobipro.common.exceptions.ResourceNotFound;
 import com.jobipro.common.response.GlobalResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,14 @@ public class GlobalExceptionHandler {
         return GlobalResponse.error(
                 ex.getMessage(),
                 HttpStatus.CONFLICT
+        );
+    }
+
+    @ExceptionHandler(ResourceNotFound.class)
+    public ResponseEntity<GlobalResponse<Void>> handleResourceNotFound(ResourceNotFound ex) {
+        return GlobalResponse.error(
+                ex.getMessage(),
+                HttpStatus.NOT_FOUND
         );
     }
 }

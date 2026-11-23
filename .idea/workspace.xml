@@ -1,93 +1,108 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a56b9feb-ce84-4a6c-ac15-cfdad2683bd8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/Clients/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/abstracts/CompanyContract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/abstracts/SiteContract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/config/FeignConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/config/FeignErrorDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/controllers/CompanyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/controllers/SiteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/dtos/company/CompanyResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/dtos/company/CreateCompanyDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/dtos/company/UpdateCompanyDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/dtos/site/CreateSiteDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/dtos/site/SiteResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/dtos/site/UpdateSiteDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/entities/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/entities/Site.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/enums/CompanyStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/enums/SiteStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/mappers/CompanyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/mappers/SiteMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/repositories/CompanyRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/repositories/SiteRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/services/CompanyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/services/SiteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/internal/InternalUserRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/internal/InternalUserResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/exceptions/ConflictException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/config/KeycloakAdminConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/KeycloakService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/security/KeycloakRoleConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/internal/InternalCompanyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/internal/InternalSiteResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/internal/InternalWorkerResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/storage/BatchPhotoUploadRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/storage/ObjectMetadata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/exceptions/ForbiddenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/exceptions/StorageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/security/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/utils/AuthorizationUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/clients/CompanyClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/clients/SiteClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/clients/UserClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/clients/WorkerClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/config/FeignConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/config/FeignErrorDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/contracts/AssignmentContract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/contracts/TaskContract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/controllers/AssignmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/controllers/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/ConfirmPhotosDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/TaskCreateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/TaskCreationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/TaskResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/TaskUpdateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/assignment/AssignmentCreateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/assignment/AssignmentResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/dtos/assignment/AssignmentUpdateDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/enteties/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/enteties/TaskAssignment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/enums/AssignmentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/enums/TaskAssignmentStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/enums/TaskStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/exceptions/CancellationNotAllowedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/exceptions/ExcHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/exceptions/TaskNotOpenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/exceptions/WorkerAlreadyInvitedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/exceptions/WorkerNotAvailableException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/mappers/AssignmentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/mappers/TaskMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/repositories/AssignmentRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/repositories/TaskRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/security/KeycloakRoleConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/services/AssignmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/services/TaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/WorkerContract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/controllers/WorkerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/mappers/WorkerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/WorkerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway-svc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway-svc/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/Clients/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/Clients/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/abstracts/CompanyContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/abstracts/CompanyContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/abstracts/SiteContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/abstracts/SiteContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/controllers/SiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/controllers/SiteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/entities/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/entities/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/entities/Site.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/entities/Site.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/enums/CompanyStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/enums/CompanyStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/enums/SiteStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/enums/SiteStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/mappers/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/mappers/CompanyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/mappers/SiteMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/mappers/SiteMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/repositories/CompanyRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/repositories/CompanyRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/repositories/SiteRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/repositories/SiteRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/services/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/services/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/services/SiteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/services/SiteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobijob-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/internal/InternalUserResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/internal/InternalUserResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/auth/auth-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/auth/auth-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/auth/auth.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/auth/auth.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/auth/auth.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/auth/auth.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/home-page/home-page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/home-page/home-page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/home-page/home-page.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/step-2/step-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/step-2/step-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/step-2/step-2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/step-2/step-2.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/worker-informations.html" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/worker-informations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/step-1/step-1.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/step-1/step-1.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/worker-informations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/onboarding/worker-informations/worker-informations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/features/sectors/sector-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/features/sectors/sector-model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/layout/navbar/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/layout/navbar/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/layout/navbar/navbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/layout/navbar/navbar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/environments/environment.development.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/StorageServiceContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/StorageServiceContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/UserServiceContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/UserServiceContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobijob-web-app/src/app/shared/models/my-location.ts" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-web-app/src/app/shared/models/my-location.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/task-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/TaskServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/TaskServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/SectorServiceContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/SectorContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/StorageServiceContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/storage/StorageServiceContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/UserServiceContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/abstracts/UserContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/config/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/storage/S3Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/controllers/SectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/controllers/SectorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/CreateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/CreateUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/MeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/MeResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/UpdateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/storage/ProfilePhotoUploadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/storage/PhotoUploadRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/dtos/user/storage/UploadUrlResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto/storage/UploadUrlResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/enteties/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/enteties/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/enteties/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/enteties/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/enums/UserType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/exceptions/ResourceAlreadyExist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/exceptions/ResourceNotFound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/helpers/ReturnMeResponseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/helpers/ReturnMeResponseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/mappers/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/repositories/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/repositories/UserRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/repositories/WorkerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/repositories/WorkerRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/security/handlers/CustomAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/StorageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/SectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/SectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/StorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/storage/StorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/shared/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/shared/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/shared/GlobalResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/test/java/com/jobipro/userservice/UserServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/test/java/com/jobipro/userservice/UserServiceServiceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,10 +112,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Record" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -128,61 +143,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.All in eureka-server.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ApiGatewaySvcApplication.executor": "Run",
-    "Spring Boot.ApiGetwaySvcApplication.executor": "Run",
-    "Spring Boot.ApiServiceApplication.executor": "Run",
-    "Spring Boot.CompanyServiceApplication.executor": "Run",
-    "Spring Boot.EurekaServerApplication.executor": "Run",
-    "Spring Boot.UserServiceApplication.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "deve",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/khalilzerzour/Desktop/Deve/JobiJobPro/jobijob-common/src/main/java/com/jobipro/common/dto",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Users/khalilzerzour/Desktop/Deve/JobiJobPro/jobijob-web-app/node_modules/typescript/lib",
-    "ultimate.editor.notification.dismissed.AngularFreeTierEditorNotificationProvider": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.All in eureka-server.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiGatewaySvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ApiGetwaySvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ApiServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CompanyServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TaskServiceApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TaskServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;deve&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/khalilzerzour/Desktop/Deve/JobiJobPro/task-service/src/main/java/com/jobipro/taskservice/config&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;ultimate.editor.notification.dismissed.AngularFreeTierEditorNotificationProvider&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/config" />
       <recent name="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro/common/dto" />
       <recent name="$PROJECT_DIR$/jobijob-common/src/main/java/com/jobipro" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/jobijob-web-app/src/app/features/auth" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.jobipro.taskservice" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jobipro.companyservice.security" />
       <recent name="com.jobipro.common.security" />
       <recent name="com.jobipro.common.response" />
       <recent name="com.jobipro.jobijobcommon.response" />
       <recent name="com.jobipro.userservice.dtos.user" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CompanyServiceApplication">
-    <configuration name="All in eureka-server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="eureka-server" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.TaskServiceApplication">
     <configuration name="ApiGatewaySvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
       <module name="api-gateway-svc" />
@@ -225,6 +239,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TaskServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="task-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jobipro.taskservice.TaskServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jobipro.taskservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="KEYCLOAK_ADMIN_CLIENT_SECRET" value="vovFV2a9hSFGQ1ZEtKF2ydwVanIUSVPc2gi3RhU4N2U4sEFlVomuKGc9A8WFWBXe26ghTr9G30V0kLFpFhHc3C" />
@@ -243,18 +271,18 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in eureka-server" />
       <item itemvalue="Spring Boot.ApiGatewaySvcApplication" />
       <item itemvalue="Spring Boot.CompanyServiceApplication" />
       <item itemvalue="Spring Boot.EurekaServerApplication" />
+      <item itemvalue="Spring Boot.TaskServiceApplication" />
       <item itemvalue="Spring Boot.UserServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ApiGatewaySvcApplication" />
-        <item itemvalue="Spring Boot.CompanyServiceApplication" />
+        <item itemvalue="Spring Boot.TaskServiceApplication" />
         <item itemvalue="Spring Boot.UserServiceApplication" />
-        <item itemvalue="JUnit.All in eureka-server" />
+        <item itemvalue="Spring Boot.CompanyServiceApplication" />
+        <item itemvalue="Spring Boot.ApiGatewaySvcApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
       </list>
     </recent_temporary>
@@ -299,19 +327,24 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/user-service/src/main/java/com/jobipro/userservice/services/UserService.java</url>
-          <line>106</line>
+          <line>108</line>
           <properties class="com.jobipro.userservice.services.UserService" method="userCreation">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/company-service/src/main/java/com/jobipro/companyservice/services/CompanyService.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="6" />
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/services/TaskService.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/task-service/src/main/java/com/jobipro/taskservice/services/TaskService.java</url>
+          <line>350</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

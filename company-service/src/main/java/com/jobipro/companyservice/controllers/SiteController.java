@@ -1,5 +1,7 @@
 package com.jobipro.companyservice.controllers;
 
+import com.jobipro.common.dto.internal.InternalCompanyResponse;
+import com.jobipro.common.dto.internal.InternalSiteResponse;
 import com.jobipro.common.dto.internal.InternalUserRequestDto;
 import com.jobipro.common.dto.internal.InternalUserResponseDto;
 import com.jobipro.common.response.GlobalResponse;
@@ -91,6 +93,28 @@ public class SiteController {
         return GlobalResponse.success(
                 siteService.updateManagerForSite(sitePublicId, managerDto),
                 "Site manager updated successfully",
+                HttpStatus.OK
+        );
+    }
+
+
+    //Client Export Endpoint
+    @GetMapping("/internal/{publicId}")
+    public ResponseEntity<GlobalResponse<InternalSiteResponse>> getInternalSite(@PathVariable String publicId) {
+        return GlobalResponse.success(
+                siteService.GetInternalSite(publicId),
+                "Site retrieved successful",
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/internal/{publicId}/connectedUserIsManager")
+    public ResponseEntity<GlobalResponse<Boolean>> connectedUserIsManager(@PathVariable String publicId
+
+    ) {
+        return GlobalResponse.success(
+                siteService.connectedUserIsManager(publicId),
+                "Check successful",
                 HttpStatus.OK
         );
     }

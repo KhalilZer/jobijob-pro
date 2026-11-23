@@ -3,19 +3,21 @@ package com.jobipro.userservice.services;
 import com.jobipro.common.UserRole;
 import com.jobipro.common.dto.internal.InternalUserRequestDto;
 import com.jobipro.common.dto.internal.InternalUserResponseDto;
+import com.jobipro.common.dto.internal.InternalWorkerResponse;
 import com.jobipro.common.exceptions.ResourceAlreadyExist;
 import com.jobipro.common.exceptions.ResourceNotFound;
-import com.jobipro.userservice.abstracts.StorageServiceContract;
-import com.jobipro.userservice.abstracts.UserServiceContract;
+import com.jobipro.common.storage.StorageServiceContract;
+import com.jobipro.userservice.abstracts.UserContract;
 import com.jobipro.userservice.dtos.user.*;
-import com.jobipro.userservice.dtos.user.storage.ProfilePhotoUploadRequest;
-import com.jobipro.userservice.dtos.user.storage.UploadUrlResponse;
+import com.jobipro.common.dto.storage.PhotoUploadRequest;
+import com.jobipro.common.dto.storage.UploadUrlResponse;
 import com.jobipro.userservice.enteties.Sector;
 import com.jobipro.userservice.enteties.User;
 import com.jobipro.userservice.enteties.Worker;
 import com.jobipro.userservice.enteties.WorkerSector;
 import com.jobipro.userservice.helpers.ReturnMeResponseHelper;
 import com.jobipro.userservice.mappers.UserMapper;
+import com.jobipro.userservice.mappers.WorkerMapper;
 import com.jobipro.userservice.repositories.SectorRepo;
 import com.jobipro.userservice.repositories.UserRepo;
 import com.jobipro.userservice.repositories.WorkerRepo;
@@ -26,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class UserService implements UserServiceContract {
+public class UserService implements UserContract {
     private final UserRepo userRepo;
     private final UserMapper userMapper;
     private final WorkerRepo workerRepo;
@@ -34,12 +36,12 @@ public class UserService implements UserServiceContract {
     private final SectorRepo sectorRepo;
     private final StorageServiceContract storageServiceContract;
     private final ReturnMeResponseHelper returnMeResponseHelper;
-
+    private final WorkerMapper workerMapper;
     private final KeycloakService keycloakService;
 
     @Override
     public MeResponse me(String keycloakId) {
-        User user = userRepo.findByKeycloakId(keycloakId).orElseThrow(() -> new ResourceNotFound("User not found"));
+        com.jobipro.userservice.enteties.User user = userRepo.findByKeycloakId(keycloakId).orElseThrow(() -> new ResourceNotFound("UserService not found"));
         Worker worker = workerRepo.findByUser(user).orElse(null);
 
         return returnMeResponseHelper.returnMeResponse(user, worker);
@@ -54,10 +56,10 @@ public class UserService implements UserServiceContract {
             String fullName
     ) {
         if (userRepo.existsByKeycloakId(keycloakId)) {
-            throw new ResourceAlreadyExist("User already exists");
+            throw new ResourceAlreadyExist("UserService already exists");
         }
 
-        User user = userCreation(keycloakId, email, fullName);
+        com.jobipro.userservice.enteties.User user = userCreation(keycloakId, email, fullName);
 
         Worker worker = null;
 
@@ -83,7 +85,7 @@ public class UserService implements UserServiceContract {
 
     private void workerSectorCreation(Worker worker, Long sectorId) {
         Sector sector = sectorRepo.findById(sectorId)
-                .orElseThrow(() -> new ResourceNotFound("Sector not found"));
+                .orElseThrow(() -> new ResourceNotFound("SectorService not found"));
 
         WorkerSector workerSector = new WorkerSector();
         workerSector.setSector(sector);
@@ -115,9 +117,9 @@ public class UserService implements UserServiceContract {
 
 
     @Override
-    public UploadUrlResponse generateProfilePhotoUploadUrl(String keycloakId, ProfilePhotoUploadRequest request) {
+    public UploadUrlResponse generateProfilePhotoUploadUrl(String keycloakId, PhotoUploadRequest request) {
 
-        User user = userRepo.findByKeycloakId(keycloakId).orElseThrow(() -> new ResourceNotFound("User not found"));
+        User user = userRepo.findByKeycloakId(keycloakId).orElseThrow(() -> new ResourceNotFound("UserService not found"));
 
         String extension = switch (request.contentType()) {
             case "image/jpeg" -> "jpg";
@@ -141,7 +143,7 @@ public class UserService implements UserServiceContract {
     @Override
     public MeResponse updateUser(String publicId, UpdateUserRequest updateUserRequest) {
 
-        User user = userRepo.findByPublicId(publicId).orElseThrow(() -> new ResourceNotFound("User not found"));
+        User user = userRepo.findByPublicId(publicId).orElseThrow(() -> new ResourceNotFound("UserService not found"));
 
         userMapper.updateRequestToUser(updateUserRequest, user);
         userRepo.save(user);
@@ -186,10 +188,21 @@ public class UserService implements UserServiceContract {
     //Internal Client functions
     @Override
     public InternalUserResponseDto meInternal(String keycloakId) {
-        User user = userRepo.findByKeycloakId(keycloakId).orElseThrow(() -> new ResourceNotFound("User not Found"));
 
-        return userMapper.toUserInternalDto(user);
+        User user = userRepo.findByKeycloakId(keycloakId)
+                .orElseThrow(() ->
+                        new ResourceNotFound("User not found")
+                );
 
+        InternalWorkerResponse worker = null;
+
+        if (user.getRole() == UserRole.WORKER) {
+            worker = workerRepo.findByUser(user)
+                    .map(workerMapper::toInternalWorkerResponse)
+                    .orElse(null);
+        }
+
+        return userMapper.toUserInternalDto(user, worker);
     }
 
     @Override
@@ -208,7 +221,7 @@ public class UserService implements UserServiceContract {
                 internalCreateUserDto.role()
         );
 
-        // 3. Create local User
+        // 3. Create local UserService
         User user = new User();
 
         user.setKeycloakId(keycloakId);
@@ -219,7 +232,7 @@ public class UserService implements UserServiceContract {
 
         userRepo.save(user);
 
-        return userMapper.toUserInternalDto(user);
+        return userMapper.toUserInternalDto(user, null);
     }
 
 

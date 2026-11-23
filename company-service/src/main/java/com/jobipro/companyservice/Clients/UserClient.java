@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @FeignClient(name = "user-service")
 public interface UserClient {
-    @GetMapping("api/users/internal/me")
+    @GetMapping("/api/users/internal/me")
     GlobalResponse<InternalUserResponseDto> getMe();
 
-    @PostMapping("api/users/internal/users")
+    @PostMapping("/api/users/internal/users")
     GlobalResponse<InternalUserResponseDto> createInternalUser(InternalUserRequestDto internalCreateUserDto);
 }

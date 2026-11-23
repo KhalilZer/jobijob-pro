@@ -1,6 +1,7 @@
 package com.jobipro.userservice.mappers;
 
 import com.jobipro.common.dto.internal.InternalUserResponseDto;
+import com.jobipro.common.dto.internal.InternalWorkerResponse;
 import com.jobipro.userservice.dtos.user.MeResponse;
 import com.jobipro.userservice.dtos.user.UpdateUserRequest;
 import com.jobipro.userservice.dtos.user.UserResponse;
@@ -45,5 +46,14 @@ public interface UserMapper {
     WorkerResponse toWorkerResponse(Worker worker);
 
 
-    InternalUserResponseDto toUserInternalDto(User user);
+    @Mapping(target = "publicId", source = "user.publicId")
+    @Mapping(target = "fullName", source = "user.fullName")
+    @Mapping(target = "email", source = "user.email")
+    @Mapping(target = "phone", source = "user.phone")
+    @Mapping(target = "role", source = "user.role")
+    @Mapping(target = "worker", source = "worker")
+    InternalUserResponseDto toUserInternalDto(
+            User user,
+            InternalWorkerResponse worker
+    );
 }

@@ -5,8 +5,8 @@ import com.jobipro.common.dto.internal.InternalUserRequestDto;
 import com.jobipro.common.dto.internal.InternalUserResponseDto;
 import com.jobipro.common.response.GlobalResponse;
 import com.jobipro.userservice.dtos.user.*;
-import com.jobipro.userservice.dtos.user.storage.ProfilePhotoUploadRequest;
-import com.jobipro.userservice.dtos.user.storage.UploadUrlResponse;
+import com.jobipro.common.dto.storage.PhotoUploadRequest;
+import com.jobipro.common.dto.storage.UploadUrlResponse;
 import com.jobipro.userservice.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ public class UserController {
 
         return GlobalResponse.success(
                 userService.me(keycloakId),
-                "User found",
+                "user found",
                 HttpStatus.OK
         );
     }
@@ -37,11 +37,11 @@ public class UserController {
     @PostMapping("/me/photo/upload-url")
 
     public ResponseEntity<GlobalResponse<UploadUrlResponse>> generateProfilePhotoUploadUrl(
-            @Valid @RequestBody ProfilePhotoUploadRequest profilePhotoUploadRequest,
+            @Valid @RequestBody PhotoUploadRequest photoUploadRequest,
             @AuthenticationPrincipal Jwt jwt
     ) {
         return GlobalResponse.success(
-                userService.generateProfilePhotoUploadUrl(jwt.getSubject(), profilePhotoUploadRequest),
+                userService.generateProfilePhotoUploadUrl(jwt.getSubject(), photoUploadRequest),
                 "Url generated Successfully",
                 HttpStatus.OK
         );
@@ -84,8 +84,8 @@ public class UserController {
 
         return GlobalResponse.success(
                 userService.meInternal(jwt.getSubject()),
-                "User Updated Successfully",
-                HttpStatus.CREATED
+                "User Retrieved Successfully",
+                HttpStatus.OK
         );
     }
 

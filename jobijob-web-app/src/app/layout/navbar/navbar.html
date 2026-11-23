@@ -21,6 +21,7 @@
           @if (connectedUser()?.userProfile; as user) {
             <img [src]="user.photoUrl" alt="" class="h-10 w-10" />
             {{ user.fullName }}
+            <button (click)="logout()">Logout</button>
           }
         }
       </div>

@@ -1,5 +1,6 @@
 package com.jobipro.companyservice.controllers;
 
+import com.jobipro.common.dto.internal.InternalCompanyResponse;
 import com.jobipro.common.response.GlobalResponse;
 import com.jobipro.companyservice.dtos.company.CompanyResponseDto;
 import com.jobipro.companyservice.dtos.company.CreateCompanyDto;
@@ -9,6 +10,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -63,6 +66,27 @@ public class CompanyController {
         return GlobalResponse.success(
                 companyService.update(publicId, updateCompanyDto),
                 "Company updated successfully",
+                HttpStatus.OK
+        );
+    }
+
+    //Client Export Endpoint
+    @GetMapping("/internal/{publicId}")
+    public ResponseEntity<GlobalResponse<InternalCompanyResponse>> getInternalCompany(@PathVariable String publicId) {
+        return GlobalResponse.success(
+                companyService.GetInternalCompany(publicId),
+                "Company retrieved successful",
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/internal/{publicId}/connectedUserIsOwner")
+    public ResponseEntity<GlobalResponse<Boolean>> connectedUserIsOwner(@PathVariable String publicId
+
+    ) {
+        return GlobalResponse.success(
+                companyService.connectedUserIsOwner(publicId),
+                "Check successful",
                 HttpStatus.OK
         );
     }

@@ -10,6 +10,8 @@ import java.util.Optional;
 public interface SiteRepo extends JpaRepository<Site, Long> {
     Optional<Site> findByPublicId(String publicId);
 
+    boolean existsByPublicIdAndManagerUserId(String sitePublicId, String UserPublicId);
+
     @Query("""
                 SELECT COUNT(s) > 0
                 FROM Site s

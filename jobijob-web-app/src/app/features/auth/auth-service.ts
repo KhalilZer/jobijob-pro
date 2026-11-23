@@ -21,7 +21,13 @@ export class AuthService {
   private connectedUserSubject = new BehaviorSubject<MeResponse | null>(null);
 
   connectedUser$ = this.connectedUserSubject.asObservable();
-  userPublicId: string = '';
+  get connectedUser(): MeResponse | null {
+    return this.connectedUserSubject.value;
+  }
+
+  get userPublicId(): string | null {
+    return this.connectedUserSubject.value?.userProfile.publicId ?? null;
+  }
 
   me() {
     return this.http
@@ -32,13 +38,18 @@ export class AuthService {
         tap((resp) => {
           if (resp.success) {
             this.connectedUserSubject.next(resp.data);
-            this.userPublicId = resp.data?.userProfile.publicId!;
           }
         }),
       );
   }
   createUser(payload: CreateUserRequest) {
-    return this.http.post<GlobalResponse<MeResponse>>(`${this.userApiUrl}`, payload);
+    return this.http.post<GlobalResponse<MeResponse>>(`${this.userApiUrl}`, payload).pipe(
+      tap((resp) => {
+        if (resp.success) {
+          this.connectedUserSubject.next(resp.data);
+        }
+      }),
+    );
   }
 
   updateUser(publicId: string, paylaod: UpdateUserRequest) {

@@ -1,6 +1,6 @@
 package com.jobipro.userservice.helpers;
 
-import com.jobipro.userservice.abstracts.StorageServiceContract;
+import com.jobipro.common.storage.StorageServiceContract;
 import com.jobipro.userservice.dtos.user.MeResponse;
 import com.jobipro.userservice.enteties.User;
 import com.jobipro.userservice.enteties.Worker;

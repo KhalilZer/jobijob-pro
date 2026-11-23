@@ -25,7 +25,7 @@ export class WorkerInformations {
   authService = inject(AuthService);
   messageService = inject(MessageService);
   router = inject(Router);
-  currentStep = signal<number>(3);
+  currentStep = signal<number>(1);
 
   //STEP 1
   sectors = signal<number[]>([]);
@@ -65,7 +65,6 @@ export class WorkerInformations {
 
   onImageSelected(file: File) {
     this.imageSelected.set(file);
-    console.log(this.imageSelected());
   }
   //END STEP 3
   next() {
@@ -103,8 +102,10 @@ export class WorkerInformations {
       const formRaw = this.step2Form.getRawValue();
       const payload = removeEmptyValues(formRaw);
 
+      console.log(this.authService.userPublicId);
+      return;
       this.authService
-        .updateUser(this.authService.userPublicId, {
+        .updateUser(this.authService.userPublicId!, {
           ...payload,
           birthDate: new Date(toLocalDate(payload.birthDate!)),
         })
@@ -127,7 +128,7 @@ export class WorkerInformations {
           switchMap((resp) =>
             this.authService.uploadImage(resp.data.uploadUrl, this.imageSelected()!).pipe(
               switchMap(() =>
-                this.authService.updateUser(this.authService.userPublicId, {
+                this.authService.updateUser(this.authService.userPublicId!, {
                   photo: resp.data.objectKey,
                 }),
               ),

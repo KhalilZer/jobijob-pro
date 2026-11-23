@@ -1,7 +1,7 @@
 package com.jobipro.companyservice.entities;
 
 
-import com.jobipro.companyservice.enums.SiteStatus;
+import com.jobipro.common.enums.SiteStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

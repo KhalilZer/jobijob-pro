@@ -43,6 +43,7 @@ export class Step1 {
   });
   placeSelect(location: any) {
     const loca: MyLocation = {
+      address: location.properties.address_line1 + ' ' + location.properties.address_line2,
       city: location.properties.city,
       countryCode: location.properties.country_code,
       latitude: location.properties.lat,

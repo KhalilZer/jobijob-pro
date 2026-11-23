@@ -1,5 +1,6 @@
 package com.jobipro.companyservice.abstracts;
 
+import com.jobipro.common.dto.internal.InternalCompanyResponse;
 import com.jobipro.companyservice.dtos.company.CompanyResponseDto;
 import com.jobipro.companyservice.dtos.company.CreateCompanyDto;
 import com.jobipro.companyservice.dtos.company.UpdateCompanyDto;
@@ -14,4 +15,7 @@ public interface CompanyContract {
     CompanyResponseDto getOneCompany(String publicId);
 
     CompanyResponseDto update(String publicId, UpdateCompanyDto updateCompanyDto);
+
+    //Internal
+    public InternalCompanyResponse GetInternalCompany(String publicId);
 }

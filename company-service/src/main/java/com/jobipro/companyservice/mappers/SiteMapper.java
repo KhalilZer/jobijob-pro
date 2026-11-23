@@ -1,6 +1,7 @@
 package com.jobipro.companyservice.mappers;
 
 
+import com.jobipro.common.dto.internal.InternalSiteResponse;
 import com.jobipro.companyservice.dtos.site.CreateSiteDto;
 import com.jobipro.companyservice.dtos.site.SiteResponseDto;
 import com.jobipro.companyservice.dtos.site.UpdateSiteDto;
@@ -22,4 +23,8 @@ public interface SiteMapper {
             UpdateSiteDto updateCompanyDto,
             @MappingTarget Site company
     );
+
+
+    @Mapping(target = "companyPublicId", source = "company.publicId")
+    InternalSiteResponse fromSiteToResponse(Site site);
 }

@@ -2,7 +2,6 @@ package com.jobipro.userservice.controllers;
 
 import com.jobipro.common.response.GlobalResponse;
 import com.jobipro.userservice.dtos.sector.SectorCreateRequest;
-import com.jobipro.userservice.enteties.Sector;
 import com.jobipro.userservice.services.SectorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,16 +19,16 @@ public class SectorController {
     private final SectorService sectorService;
 
     @PostMapping
-    public ResponseEntity<GlobalResponse<Sector>> createSector(@Valid @RequestBody SectorCreateRequest sectorCreateRequest) {
+    public ResponseEntity<GlobalResponse<com.jobipro.userservice.enteties.Sector>> createSector(@Valid @RequestBody SectorCreateRequest sectorCreateRequest) {
         return GlobalResponse.success(
                 sectorService.create(sectorCreateRequest),
-                "Sector created successfully",
+                "SectorService created successfully",
                 HttpStatus.CREATED
         );
     }
 
     @GetMapping
-    public ResponseEntity<GlobalResponse<List<Sector>>> getAllSector() {
+    public ResponseEntity<GlobalResponse<List<com.jobipro.userservice.enteties.Sector>>> getAllSector() {
         return GlobalResponse.success(
                 sectorService.getAll(),
                 "Sectors retrieved successfully",

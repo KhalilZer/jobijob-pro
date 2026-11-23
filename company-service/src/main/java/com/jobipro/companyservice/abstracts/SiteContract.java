@@ -1,5 +1,6 @@
 package com.jobipro.companyservice.abstracts;
 
+import com.jobipro.common.dto.internal.InternalSiteResponse;
 import com.jobipro.common.dto.internal.InternalUserRequestDto;
 import com.jobipro.common.dto.internal.InternalUserResponseDto;
 import com.jobipro.companyservice.dtos.site.*;
@@ -18,4 +19,6 @@ public interface SiteContract {
     InternalUserResponseDto createManagerForSite(String sitePublicId, InternalUserRequestDto managerDto);
 
     InternalUserResponseDto updateManagerForSite(String sitePublicId, InternalUserRequestDto managerDto);
+
+    InternalSiteResponse GetInternalSite(String publicId);
 }

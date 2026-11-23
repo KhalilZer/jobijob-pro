@@ -33,8 +33,12 @@ public class User {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(unique = true)
     private String phone;
+
     private String photo;
 
     @Enumerated(EnumType.STRING)
@@ -46,6 +50,7 @@ public class User {
     @Column(name = "updated_at")
     private Instant updatedAt;
 
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @PrePersist

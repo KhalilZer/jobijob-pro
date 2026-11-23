@@ -8,4 +8,8 @@ import java.util.Optional;
 public interface CompanyRepo extends JpaRepository<Company, Long> {
 
     Optional<Company> findByPublicId(String publicId);
+
+    boolean existsByPublicId(String publicId);
+
+    boolean existsByOwnerPublicIdAndPublicId(String userPublicId, String companyPublicId);
 }

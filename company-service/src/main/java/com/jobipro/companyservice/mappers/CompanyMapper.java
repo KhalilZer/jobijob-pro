@@ -1,5 +1,6 @@
 package com.jobipro.companyservice.mappers;
 
+import com.jobipro.common.dto.internal.InternalCompanyResponse;
 import com.jobipro.companyservice.dtos.company.CompanyResponseDto;
 import com.jobipro.companyservice.dtos.company.CreateCompanyDto;
 import com.jobipro.companyservice.dtos.company.UpdateCompanyDto;
@@ -21,4 +22,6 @@ public interface CompanyMapper {
             UpdateCompanyDto updateCompanyDto,
             @MappingTarget Company company
     );
+    
+    InternalCompanyResponse fromCompanyToResponse(Company company);
 }

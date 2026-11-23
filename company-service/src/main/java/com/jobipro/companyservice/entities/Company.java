@@ -1,11 +1,9 @@
 package com.jobipro.companyservice.entities;
 
-import com.jobipro.companyservice.enums.CompanyStatus;
+import com.jobipro.common.enums.CompanyStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.time.Instant;
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
 package com.jobipro.companyservice.services;
 
+import com.jobipro.common.dto.internal.InternalSiteResponse;
 import com.jobipro.common.dto.internal.InternalUserRequestDto;
 import com.jobipro.common.dto.internal.InternalUserResponseDto;
 import com.jobipro.common.exceptions.ResourceAlreadyExist;
@@ -14,6 +15,7 @@ import com.jobipro.companyservice.mappers.SiteMapper;
 import com.jobipro.companyservice.repositories.CompanyRepo;
 import com.jobipro.companyservice.repositories.SiteRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,6 +30,7 @@ public class SiteService implements SiteContract {
     private final CompanyRepo companyRepo;
 
     @Override
+    @PreAuthorize("hasAnyRole('COMPANY_OWNER','ADMIN')")
     public SiteResponseDto createSite(CreateSiteDto createSiteDto) {
         if (siteRepo.existsNormalized(
                 createSiteDto.name(),
@@ -63,6 +66,8 @@ public class SiteService implements SiteContract {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('COMPANY_OWNER','SITE_MANAGER','ADMIN')")
+
     public SiteResponseDto updateSite(String publicId, UpdateSiteDto updateSiteDto) {
         Site site = siteRepo.findByPublicId(publicId).orElseThrow(() -> new ResourceNotFound("Site not found"));
 
@@ -73,6 +78,7 @@ public class SiteService implements SiteContract {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('COMPANY_OWNER','ADMIN')")
     public InternalUserResponseDto createManagerForSite(String sitePublicId, InternalUserRequestDto managerDto) {
 
         Site site = siteRepo.findByPublicId(sitePublicId).orElseThrow(() -> new ResourceNotFound("Site not found"));
@@ -90,7 +96,24 @@ public class SiteService implements SiteContract {
     }
 
     @Override
+    @PreAuthorize("hasAnyRole('COMPANY_OWNER','ADMIN')")
+
     public InternalUserResponseDto updateManagerForSite(String sitePublicId, InternalUserRequestDto managerDto) {
         return null;
+    }
+
+
+    //internal services to expert
+    @Override
+    public InternalSiteResponse GetInternalSite(String publicId) {
+        Site site = siteRepo.findByPublicId(publicId).orElseThrow(() -> new ResourceNotFound("Site not found"));
+        return siteMapper.fromSiteToResponse(site);
+    }
+
+    public Boolean connectedUserIsManager(String publicId) {
+        GlobalResponse<InternalUserResponseDto> response = userClient.getMe();
+        InternalUserResponseDto connectedUser = response.getData();
+
+        return siteRepo.existsByPublicIdAndManagerUserId(publicId, connectedUser.publicId());
     }
 }
